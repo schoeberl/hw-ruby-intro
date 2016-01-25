@@ -2,12 +2,43 @@
 
 # Part 1
 
+#puts "Hello from Ruby"
+#puts sum([1,2,3])
+
+
 def sum arr
-  # YOUR CODE HERE
+  $i = 0
+  $sum = 0
+  while $i<arr.length do
+    $sum = $sum + arr[$i]
+    $i += 1
+  end
+  return $sum
 end
 
+FIXNUM_MIN = -(2**(0.size * 8 -2))
+
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr.length==0 then
+    return 0
+  end
+  if arr.length==1 then
+    return arr[0]
+  end
+  $m = FIXNUM_MIN
+  $m2 = FIXNUM_MIN
+  $i = 0
+  while $i<arr.length do
+    if arr[$i] >= $m then
+      $m2 = $m
+      $m = arr[$i]
+    elsif arr[$i] >= $m2 then
+      $m2 = arr[$i]
+    end
+    $i += 1
+  end
+  return $m+$m2  
+
 end
 
 def sum_to_n? arr, n
@@ -33,3 +64,5 @@ end
 class BookInStock
 # YOUR CODE HERE
 end
+
+max_2_sum([1,2,3])
